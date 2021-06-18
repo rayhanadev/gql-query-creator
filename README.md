@@ -122,14 +122,14 @@ function myQueryString() {
     username: ['String!', username],
   };
 
-	// Modify the tree if a criteria is met
+  // Modify the tree if a criteria is met
   if(username === 'RayhanADev') {
-		queryTree.userByUsername.items.roles = '';
+    queryTree.userByUsername.items.roles = '';
   };
 
-	// Pass Everything Through the Creator
-	const myQuery = gqlQueryCreator(queryName, queryVariables, queryTree);
-	return myQuery;
+  // Pass Everything Through the Creator
+  const myQuery = gqlQueryCreator(queryName, queryVariables, queryTree);
+  return myQuery;
 }
 
 const myQuery = myQueryString();
