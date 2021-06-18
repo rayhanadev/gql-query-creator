@@ -1,0 +1,54 @@
+{
+	"name": "gql-query-creator",
+	"version": "0.0.1",
+	"description": "Programatically create your GraphQL Query, pass an object through to get a string.",
+	"sideEffects": false,
+	"type": "module",
+	"main": "./dist/gql-query-creator.cjs",
+	"module": "./dist/gql-query-creator.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/gql-query-creator.mjs",
+			"require": "./dist/gql-query-creator.cjs",
+			"default": "./dist/gql-query-creator.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"test": "node tests/common.test.cjs && node tests/esm.test.mjs",
+		"test:cjs": "node tests/common.test.cjs",
+		"test:mjs": "node tests/esm.test.mjs",
+		"lint": "eslint src --config ./eslint.config.cjs --ext .js",
+		"lint:fix": "eslint src --config ./eslint.config.cjs --ext .js --fix",
+		"format": "prettier --check .",
+		"format:fix": "prettier --write .",
+		"build": "rimraf ./dist/** && rollup --config",
+		"build:cjs": "rimraf ./dist/gql-query-creator.cjs && rollup src/index.js --file dist/gql-query-creator.cjs --format cjs",
+		"build:mjs": "rimraf ./dist/gql-query-creator.mjs && rollup src/index.js --file dist/gql-query-creator.mjs --format esm"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RayhanADev/gql-query-creator.git"
+	},
+	"keywords": [
+		"fetch",
+		"https",
+		"async",
+		"request"
+	],
+	"author": "Ray Arayilakath <rayhanadev@pm.me> (https://rayhanadev.vercel.app)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/RayhanADev/gql-query-creator/issues"
+	},
+	"homepage": "https://github.com/RayhanADev/gql-query-creator",
+	"devDependencies": {
+		"eslint": "^7.28.0",
+		"prettier": "^2.3.1",
+		"rimraf": "^3.0.2",
+		"rollup": "^2.51.2"
+	},
+	"dependencies": {}
+}
