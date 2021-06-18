@@ -1,7 +1,7 @@
 {
 	"name": "gql-query-creator",
 	"version": "0.0.1",
-	"description": "Programatically create your GraphQL Query.",
+	"description": "Programmatically create your GraphQL Query for NodeJS.",
 	"sideEffects": false,
 	"type": "module",
 	"main": "./dist/gql-query-creator.cjs",
