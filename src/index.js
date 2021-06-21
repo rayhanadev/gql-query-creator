@@ -7,10 +7,14 @@ function whatis(value) {
 
 function variablesString(queryVariables) {
 	let queryString = '';
-	for (const [key, value] of Object.entries(queryVariables)) {
-		queryString += `$${key}: ${value},`;
+	if(Object.keys(queryVariables).length > 0) {
+		for (const [key, value] of Object.entries(queryVariables)) {
+			queryString += `$${key}: ${value},`;
+		}
 	}
-	return queryString.slice(0, -1);
+
+	if(Object.keys(queryVariables).length > 0) return '(' + queryString.slice(0, -1) + ')';
+	else return '';
 }
 
 function itemsString(queryItems, tabLength = 1) {
@@ -81,7 +85,7 @@ ${tabPadding}}\n`;
 
 function createQueryWrapper(name, variables, items) {
 	const queryTemplate =
-		'query __QUERY_NAME__(__QUERY_VARIABLES__) {\n__QUERY_PROPERTIES__\n}';
+		'query __QUERY_NAME____QUERY_VARIABLES__ {\n__QUERY_PROPERTIES__\n}';
 	const queryVariablesString = variablesString(variables);
 	const queryItemsString = itemsString(items);
 
